@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-win-bg: #F3F4F6;
+  --color-win-card: #ffffff;
+  --color-win-border: #cbd5e1; /* slate-300 */
+  --color-win-accent: #2563eb; /* blue-600 */
+  --color-win-accent-hover: #1d4ed8; /* blue-700 */
+  --color-win-text: #0f172a; /* slate-900 */
+  --color-win-text-secondary: #64748b; /* slate-500 */
+  --color-win-titlebar: #ffffff;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #1e293b; /* Premium deep slate desk backdrop */
+    color: #f8fafc;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    user-select: none;
+  }
+
+  /* Custom Scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* slate-300 scrollbar */
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; /* slate-400 */
+  }
+}
+
+/* Simulated Windows Acrylic/Glow Effects */
+.desktop-glow {
+  background: radial-gradient(circle at 40% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+}
+
+.title-bar-drag {
+  -webkit-app-region: drag;
+}
+
+/* Animations using motion/react */
+@keyframes window-entry {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.window-appear {
+  animation: window-entry 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

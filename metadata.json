@@ -1,0 +1,6 @@
+{
+  "name": "English Grammar Handbook",
+  "description": "An offline-first modern learning application for mastering English grammar. Includes an extensive database of topics, beautifully color-coded examples, interactive quizzes, search capabilities, and active study streak milestone badges.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
