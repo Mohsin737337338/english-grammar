@@ -17,10 +17,15 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Clean install
         run: |
           if (Test-Path package-lock.json) { Remove-Item package-lock.json }
+          if (Test-Path node_modules) { Remove-Item -Recurse -Force node_modules }
+          npm cache clean --force
           npm install
+
+      - name: Fix Tailwind native binding
+        run: npm install @tailwindcss/oxide-win32-x64-msvc --no-save
 
       - name: Build EXE
         run: npm run build:win
